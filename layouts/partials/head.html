@@ -1,0 +1,66 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/x-icon" href="/img/media.ico">
+   <!-- Recommended favicon format -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/xcode.css" />
+  <!-- bootstrap & responsive css -->
+ <!-- <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />  
+  <link rel="stylesheet" href="/css/fhir-theme.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- bootstrap & jquery js -->
+  <script type="text/javascript" src="/js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js" /></script>  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/latolatinfonts.css" />
+  {{ if isset $.Site.Params "bgimg" }}
+  <style>
+    body {
+      background: #ecedef url("{{ $.Site.Params.bgimg | safeCSS }}") repeat;
+    }
+  </style>
+  {{ end }}
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-93818-13');
+
+
+      $(document).ready(function() {
+      $('.fb-share').click(function(e) {
+        e.preventDefault();
+        window.open($(this).attr('href'), 'fbShareWindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 275) + ', left=' + ($(window).width() / 2 - 225) + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+        return false;
+      });
+      });
+      $(document).ready(function(){
+        $('.hamburger-menu > span ').hide();
+        $('.hamburger-menu').on("click", function(){
+          if ( $( 'body' ).hasClass( 'hurb-menu-custom' ))
+          {
+            $('body').removeClass('hurb-menu-custom');
+
+          }
+          else
+          { 
+            $('.hamburger-menu > span ').show();  
+            $('body').addClass('hurb-menu-custom');
+          }
+       });
+
+      });
+      hamburger-menu
+  </script>
+</head>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">FDA MITRE ATT and CK for Enterprise</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "FDA MITRE ATT and CK for Enterprise",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+            },
+            "items": [
+                {
+                    "question": "Initial Access",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q002",
+                    "localQuestionCode": "Q002",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [
+
+                        {
+                            "question": "Do you provide Initial Access to all users?",
+                            "hideUnits": true,
+                            "questionCode": "Q002-01",
+                            "localQuestionCode": "Q002-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Do you provide execution of adversary-controlled code on a local or remote system?",
+                            "hideUnits": true,
+                            "questionCode": "Q002-02",
+                            "localQuestionCode": "Q002-02",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        }
+
+
+
+                    ]
+                },
+                {
+                    "question": "Persisitence",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q003",
+                    "localQuestionCode": "Q003",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [{
+                            "question": "Do you provide any access, action, or configuration change to a system that gives an adversary a persistent presence on that system?",
+                            "hideUnits": true,
+                            "questionCode": "Q003-01",
+                            "localQuestionCode": "Q003-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Does your system allows Account Manipulation",
+                            "questionCode": "Q003-02",
+
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q003-02",
+                            "dataType": "CNE",
+
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "answerCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            }
+                        }
+                        
+
+                    ]
+                },
+                {
+                    "question": "Privilege Escalation",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q004",
+                    "localQuestionCode": "Q004",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [{
+                            "question": "Does your system allows an adversary to obtain a higher level of permissions on a system or network?",
+                            "hideUnits": true,
+                            "questionCode": "Q004-01",
+                            "localQuestionCode": "Q004-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Does your system allows Accessibility Features?",
+                            "questionCode": "Q004-02",
+
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q004-02",
+                            "dataType": "CNE",
+
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "answerCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            }
+                        }
+                        
+
+
+
+
+
+                    ]
+                },
+                {
+                    "question": "Defense Evasion",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q005",
+                    "localQuestionCode": "Q005",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [{
+                            "question": "Does your system allows Access Token Manipulation?",
+                            "hideUnits": true,
+                            "questionCode": "Q005-01",
+                            "localQuestionCode": "Q005-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Does your system allows Binary Padding?",
+                            "questionCode": "Q005-02",
+
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-02",
+                            "dataType": "CNE",
+
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "answerCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            }
+                        }
+
+                    ]
+                }
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Product profile</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "name": "Xcertia",
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+
+            },
+
+            "items": [
+			
+
+                {
+                    "question": "Is the identity of any entities that have access to, collect and/or use of the user's personal information made available and disclosed to the user on an at least annual basis?",
+                    "questionCode": "XC2.1",
+                    "questionCodeSystem": "Custom",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "If registration is required to use all or some of the app's features is the user provided with an explanation as to the uses of the registration information?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.2",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app publisher obtain consent before collecting personal data, PII, PHI, financial or location data, including obtaining HIPAA authorizations where applicable?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.3",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Is there a mechanism that enables users to acknowledge and consent to changes to the Privacy Policy?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.4",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the Privacy Policy disclose the retention policy regarding user information?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.5",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Are the retention and deletion time periods based on clearly defined business needs or legal obligations?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.6",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "If the app accesses any of the mobile device's native hardware (camera, etc.) is the reason for requiring such access disclosed to the user?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.7",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "If the app accesses any Wi-Fi, LAN, or mobile network data connections, is an estimate of the amount of data consumed provided to the user along with a notice on carrier data charges?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.8",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "If the app accesses social networking sites (such as Facebook, etc), are reasons as to why such sites are being accessed disclosed to the user?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.9",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Is there a mechanism where the user can affirmatively opt in or out of information shared with third parties?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.10",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app publisher certify that a Business Associate Agreement (BAA) has been executed pursuant to HIPAA with any and all necessary third parties?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.11",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the user have the ability to access or request any of his/her Protected Health Information (PHI) collected, stored and/or transmitted by the app?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.12",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "In case of any breach are notifications provided no later than 60 days following the discovery of a breach?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.13",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app provide clear notice of the content that will be made available and its suitability for specific age groups?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.14",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app provide an age verification process-either automatic or self-reported-to control access to age-restricted content?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.15",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app have a default setting that prevents in-app purchases for children?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.16",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app have a default setting that prevents usage of camera and microphone for children?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.17",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                },
+                {
+                    "question": "Does the app have measures in place to comply with applicable laws and regulations related to the European Union GDPR policy?",
+                    "questionCodeSystem": "Custom",
+                    "questionCode": "XC2.18",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "1"
+                    },
+                    "header": false,
+                    "editable": "1",
+                    "answerCardinality": {
+                        "min": "0",
+                        "max": "1"
+                    },
+                    "dataType": "CNE",
+                    "answers": [{
+                            "text": "Yes",
+                            "code": "Opt1",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "No",
+                            "code": "Opt2",
+                            "label": null,
+                            "score": null
+                        },
+                        {
+                            "text": "NA",
+                            "code": "Opt3",
+                            "label": null,
+                            "score": null
+                        }
+                    ]
+                }
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

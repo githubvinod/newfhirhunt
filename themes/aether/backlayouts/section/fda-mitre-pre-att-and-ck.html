@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">FDA MITRE Pre ATT and CK</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "FDA MITRE Pre ATT and CK",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+            },
+            "items": [		
+                {
+                    "question": "Priority Definition Planning ",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q002",
+                    "localQuestionCode": "Q002",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [
+
+                        {
+                            "question": "In your organization is there any process of determining the set of Key Intelligence Topics (KIT) or Key Intelligence Questions (KIQ) required for meeting key strategic, operational, or tactical goals?",
+                            "hideUnits": true,
+                            "questionCode": "Q002-01",
+                            "localQuestionCode": "Q002-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Are you maintaining Key Intelligence Topics (KITs) and Key Intelligence Questions (KIQs) may be further subdivided to focus on political, economic, diplomatic, military, financial, or intellectual property categories?",
+                            "hideUnits": true,
+                            "questionCode": "Q002-02",
+                            "localQuestionCode": "Q002-02",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        }
+
+
+
+                    ]
+                },
+                {
+                    "question": "Priority Definition Direction",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q003",
+                    "localQuestionCode": "Q003",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [{
+                            "question": "Do you have a process of collecting and assigning requirements for meeting Key Intelligence Topics (KIT) or Key Intelligence Questions (KIQ) as determined by leadership.",
+                            "hideUnits": true,
+                            "questionCode": "Q003-01",
+                            "localQuestionCode": "Q003-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+                        },
+                        {
+                            "question": "Do you maintain a central management system for submitting intelligence requirements, Key Intelligence Topics (KITs), and Key Intelligence Questions (KIQs)",
+                            "questionCode": "Q003-02",
+
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q003-02",
+                            "dataType": "CNE",
+
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Y"
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "N"
+                                }
+                            ],
+                            "answerCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            }
+                        }
+                        
+
+                    ]
+                }
+                
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

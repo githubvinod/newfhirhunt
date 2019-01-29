@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Resources</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "Digital Health Interoperability Evaluation Facet - Resources",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+
+            },
+            "items": [
+				 {
+                    "question": "Resource Details",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q005",
+                    "localQuestionCode": "Q005",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+                    "items": [{
+                            "question": "Which version of  FHIR® standard does your product support?",
+                            "questionCodeSystem": "Custom1",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "SNOMED CT",
+                                    "code": "snomed_ct",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "RxNorm",
+                                    "code": "rxnorm",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "LOINC",
+                                    "code": "loinc",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "UCUM: UnitsOfMeasure",
+                                    "code": "ucum_unitsofmeasure",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "NCI Metathesaurus",
+                                    "code": "nci_metathesaurus",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "AMA CPT codes",
+                                    "code": "ama_cpt_codes",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "NDF-RT National Drug File - Reference Terminology",
+                                    "code": "ndf_rt_national_drug_file",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Unique Ingredient Identifier (UNII)",
+                                    "code": "unii",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "NDC/NHRIC Codes",
+                                    "code": "ndc_nhric_codes",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "CVX (Vaccine Administered)",
+                                    "code": "cvx_vaccine_administration",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ISO 2 letter Country Codes",
+                                    "code": "iso_2_letter_country_codes",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "NUBC code system for Patient Discharge Status",
+                                    "code": "nubc_code_system",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "RadLex",
+                                    "code": "radlex",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ICD-9 & ICD-10",
+                                    "code": "icd_9_10",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ICPC International Classification of Primary Care",
+                                    "code": "icpc",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ICF Classification of Functioning, Disability and Health",
+                                    "code": "icf_classification",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Version 2 tables",
+                                    "code": "version_2_tables",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "A HL7 v3 code system",
+                                    "code": "hl7_v3",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Anatomical Therapeutic Chemical Classification System",
+                                    "code": "anatomical_therapeutic",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "IETF language",
+                                    "code": "ietf",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Mime Types Multipurpose Internet Mail Extensions",
+                                    "code": "mime_types",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Medical Device Codes defined in ISO 11073-10101",
+                                    "code": "mdeical_device_codes",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "DICOM Code Definitions",
+                                    "code": "dicom",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Health Canada Drug Identification Number",
+                                    "code": "health_canada",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "NUCC Provider Taxonomy",
+                                    "code": "nucc",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "HGNC: Human Gene Nomenclature Committee",
+                                    "code": "hgnc",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ENSEMBL reference sequence identifiers",
+                                    "code": "ensembl",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "REFSEQ: National Center for Biotechnology Information (NCBI)",
+                                    "code": "refseq",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ClinVar",
+                                    "code": "clinvar",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Sequence Ontology",
+                                    "code": "sequence_ontology",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "HGVS: Human Genome Variation Society",
+                                    "code": "hgvs",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "DBSNP: Single Nucleotide Polymorphism database",
+                                    "code": "dbsnp",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "COSMIC: Catalogue Of Somatic Mutations In Cancer",
+                                    "code": "cosmic",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "LRG: Locus Reference Genomic Sequences",
+                                    "code": "lrg_sequence",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "OMIM: Online Mendelian Inheritance in Man",
+                                    "code": "omim",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "PubMed",
+                                    "code": "pubmed",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "PHARMGKB: Pharmacogenomics Knowledge Base",
+                                    "code": "pharmgkb",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "ClinicalTrials.gov",
+                                    "code": "clinical_trials",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "European Bioinformatics Institute",
+                                    "code": "european_bioinformatics_institute",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        }, {
+                            "question": "What are your FHIR resources?",
+                            "questionCode": "Q005-01",
+                            "questionCodeSystem": "Custom2",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Which concepts of the Clinical findings does your resource support?",
+                            "questionCode": "Q005-02",
+                            "questionCodeSystem": "Custom3",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "What elements are used in the patient resource?",
+                            "questionCode": "Q005-03",
+                            "questionCodeSystem": "Custom4",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Which challenge / problem is been addressed by your product?",
+                            "questionCode": "Q005-04",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "How often should users use your product to realize its benefits? Please provide use cases.",
+                            "questionCode": "Q005-05",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Please explain the clinical and behavioural benefits of using your product/services?",
+                            "questionCode": "Q005-06",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Do your resources capture the concepts in Patient allergy and adverse reactions?",
+                            "questionCode": "Q005-07",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        }
+                    ]
+                },
+
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+   <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Objectives and Key Results</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "Objectives and Key Results",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+
+            },
+            "items": [{
+                    "question": "Respondent Contact Information (**All fields in this section are required**)",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q002",
+                    "localQuestionCode": "Q002",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+                    "items": [{
+                            "question": "Name",
+                            "questionCode": "Q002-01",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-01",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Title",
+                            "questionCode": "Q002-02",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-02",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Token",
+                            "questionCode": "token-token",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "token-token",
+                            "dataType": "ST",
+                            "editable":editable,
+                            "value":token
+                        },
+                        {
+                            "question": "Company",
+                            "questionCode": "company-name",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "company-name",
+                            "dataType": "ST",
+                            "editable":edit_assessee,
+                            "value":assessee
+                        },
+                        {
+                            "question": "Email Address",
+                            "questionCode": "Q002-05",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-05",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Phone",
+                            "questionCode": "Q002-06",
+                            "hideUnits": false,
+                            "numberField": true,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-06",
+                            "dataType": "ST"
+                        }
+                    ]
+                }, {
+                    "question": "Objective",
+                    "questionCode": "Q003-01",
+                    "hideUnits": false,
+                    "noEmptyValue": true,
+                    "localQuestionCode": "expectation",
+                    "dataType": "ST",
+                    "questionCardinality": {
+                        "min": "1",
+                        "max": "*"
+                    },
+                    "items": [
+                        {
+                            "question": "Objective Status",
+                            "questionCode": "Q003-01-03",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "expectation-status",
+                            "dataType": "CNE",
+                            "answers": [
+                                    {
+                                      "text": "Not Started",
+                                      "code": "0",
+                                      "label": null,
+                                      "score": null
+                                    },
+                                    {
+                                      "text": "In Progress",
+                                      "code": "1",
+                                      "label": null,
+                                      "score": null
+                                    },
+                                    {
+                                      "text": "Completed",
+                                      "code": "2",
+                                      "label": null,
+                                      "score": null
+                                    }
+                            ]
+                        },{
+                            "question": "Objective Priority",
+                            "questionCode": "Q003-01-04",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "expectation-priority",
+                            "dataType": "ST"
+                        },{
+                            "question": "Key Result",
+                            "header": true,
+                            "hideUnits": true,
+                            "questionCode": "Q003-01-H",
+                            "localQuestionCode": "Q003-01-H",
+                            "units": null,
+                            "codingInstructions": "",
+                            "copyrightNotice": null,
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "*"
+                            },
+                            "items":[
+                                {
+                                    "question": "Key Result",
+                                    "questionCode": "Q003-01-01",
+                                    "hideUnits": false,
+                                    "noEmptyValue": true,
+                                    "localQuestionCode": "expectation-metric",
+                                    "dataType": "CNE",
+                                    "answers": [
+                                            {
+                                              "text": "0",
+                                              "code": "0",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "1",
+                                              "code": "1",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "2",
+                                              "code": "2",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "3",
+                                              "code": "3",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "4",
+                                              "code": "4",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "5",
+                                              "code": "5",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "6",
+                                              "code": "6",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "7",
+                                              "code": "7",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "8",
+                                              "code": "8",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "9",
+                                              "code": "9",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "10",
+                                              "code": "10",
+                                              "label": null,
+                                              "score": null
+                                            }
+                                    ]
+                                },{
+                                    "question": "Key Result Type",
+                                    "questionCode": "Q003-01-02",
+                                    "hideUnits": false,
+                                    "noEmptyValue": true,
+                                    "localQuestionCode": "expectation-metric-type",
+                                    "dataType": "ST"
+                                },{
+                                    "question": "Key Result Status",
+                                    "questionCode": "Q003-01-03",
+                                    "hideUnits": false,
+                                    "noEmptyValue": true,
+                                    "localQuestionCode": "expectation-metric-status",
+                                    "dataType": "CNE",
+                                    "answers": [
+                                            {
+                                              "text": "Not Started",
+                                              "code": "0",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "In Progress",
+                                              "code": "1",
+                                              "label": null,
+                                              "score": null
+                                            },
+                                            {
+                                              "text": "Completed",
+                                              "code": "2",
+                                              "label": null,
+                                              "score": null
+                                            }
+                                    ]
+                                },{
+                                    "question": "Key Result Priority",
+                                    "questionCode": "Q003-01-04",
+                                    "hideUnits": false,
+                                    "noEmptyValue": true,
+                                    "localQuestionCode": "expectation-metric-priority",
+                                    "dataType": "ST"
+                                }
+                            ]
+                        
+                        }
+                    ]
+                }
+
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

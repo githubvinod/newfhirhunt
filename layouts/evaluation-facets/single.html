@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    />
+     {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">{{.Params.title}}</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+  
+    <div id="formContainer">
+    </div>
+     <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+
+    <script>
+      $(document).ready(function(){ 
+      //console.log('123');
+        
+        var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://stage-graphql.medigy.com/graphql",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "Postman-Token": "4720d60c-14d2-422a-8b3c-b2d73bd7c5ec"
+  },
+  "data": {
+    "query": "  query{\n  getQuestionnaire(name:\"{{.Params.title}}\",category:\"{{.Params.category}}\",tenantId:\"7822da54-c0ba-11e8-85c1-6301a0c839d6\"){\n    instance\n  }\n}"
+  }
+}
+
+ $.ajax(settings).done(function (response) {
+   //console.log(response.data.getQuestionnaire.instance);
+   var pagetemp = response.data.getQuestionnaire.instance;
+   // alert(pagetemp);
+   pagetemp = JSON.parse(pagetemp);
+   window.formDef = pagetemp;
+   LForms.Util.addFormToPage('formDef', 'formContainer');
+   
+    
+});
+
+});
+
+ </script>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+  
+    
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

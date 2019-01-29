@@ -1,0 +1,65 @@
+<div ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+  class="card blog-card" rel="bookmark" >
+  {{ if isset .Params "featuredimage" }} 
+  <div class="card-img-container">
+  <a href="{{ .Permalink }}"><img src="{{.Params.featuredimage }}" class="card-img" /></a>
+  </div>  
+  {{ end }}
+  <article class="card-body">
+        <div class="subscribe">
+                <a href="#." data-toggle="modal" title="Watcher" data-target="#exampleModalCenter"><div class="small-bt-row"><span class="col a"><i class="far fa-eye"></i></span><span class="col b">Watch</span></div></a>
+              </div>
+    <h2 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="card-text">{{ if (isset .Params "description") }}{{ index .Params "description" }}{{ else }}{{ .Summary }}{{ end }}</p>
+    <!-- social-count-area -->
+    <div class="metrix row count-bt-area">
+    <div class="col-lg-4 count-col-1"><div class="popularity">
+                <a href="#."  title="Vote" ><div class="small-bt-row" data-app="10" ><span class="col a"><i class="fas fa-arrow-alt-circle-up"></i></span><span class="col b">0</span></div></a>
+                <a href="#."><div class="small-bt-row" data-toggle="modal" data-target="#exampleModalCenter"><span class="col a"><i class="fas fa-comment"></i></span><span class="col b">0</span></div></a>
+                <div class="clearfix"></div>
+                </div></div>
+                
+    <div class="col-lg-4 count-col-2">
+        {{ if ne .Params.githubUrl "Nil"  }}
+      <div class="github-row fab fa-github">
+                <a href="#" target="_blank">
+                <div class="github-count">
+                <span><i class="fas fa-eye"></i></span><span class="hunt-comm-count">{{.Params.watchers }}</span>
+                </div>
+                </a> 
+                <a href="#" target="_blank">
+                <div class="github-count">
+                <span><i class="fas fa-star"></i></span><span class="hunt-comm-count">{{.Params.stars }}</span>
+                </div>
+                </a> 
+                <a href="#" target="_blank">
+                <div class="github-count">
+                <span><i class="fas fa-code-branch"></i></span><span class="hunt-comm-count">{{.Params.forks }}</span>
+                </div>
+                </a>
+                <div class="clearfix"></div>
+                </div>
+                {{end}}
+              </div>
+                
+    <div class="col-lg-4 count-col-3"><div class="social-share">  
+                <a class="fb-share" href='https://www.facebook.com/sharer/sharer.php?u=https://www.fhirhunt.com{{ .Permalink | safeURL }}' target="_blank"><div class="social-ico face"><i class="fab fa-facebook-f"></i></div></a>
+                <a class="fb-share"  href='https://twitter.com/home?status=https://www.fhirhunt.com{{ .Permalink | safeURL }}'><div class="social-ico twit"><i class="fab fa-twitter"></i></div></a>         
+                <a class="fb-share" href='mailto:?subject={{ .Title }}&body=https://www.fhirhunt.com{{ .Permalink | safeURL }}' target="_blank"><div class="social-ico mail"><i class="fas fa-envelope"></i></div></a>           
+                <div class="clearfix"></div>
+                </div></div>
+    </div>
+    <!-- social-count-area ends -->
+
+    <div class="card-subtext muted-text">
+      <p>Posted <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>
+      {{ range $key, $value := .Params.categories }}
+      {{if ne $value "null"}}
+        <p><a href="/categories/{{ $value | urlize  }}">{{ $value }}</a></p>
+        {{end}}
+      {{ end }}
+      
+
+      </div>
+  </article>
+</div>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    />
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">{{ .Title }}</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+	  <ul class="ul-list-style">
+	  
+		<li>Product
+			<ul>
+				<li><a href="/product-profiles">Product Profile</a></li> 
+			</ul>
+		</li> 
+		
+		<li>Quality</a>
+			<ul>
+				<li><a href="/digital-health-quality-evaluation-facet">Digital Health Quality Evaluation Facet</a></li>
+			</ul>
+		</li> 
+		<li>User Experience</a>
+			<ul>
+				<li><a href="/user-experience-measures">User Experience Measures</a></li>
+			</ul>
+		</li> 
+		<li>Expectations
+			<ul>
+				<li><a href="/objectives-and-key-results">Objectives and Key Results</a></li>
+			</ul>
+		</li> 
+		<li>Interoperability
+			<ul>
+				<li><a href="/digital-health-terminology-facet">Digital Health Terminology Facet</a></li>
+				<li><a href="/digital-health-it-standards-facet">Digital Health IT Standards Facet</a></li>
+				<!--<li><a href="/resources">Digital Health Interoperability Evaluation Facet - Resources</a></li>-->
+			</ul>
+		</li> 
+		<li>Security
+			<ul>
+				<li><a href="/privacy-guidelines">Digital Health Interoperability Evaluation Facet - Privacy guidelines</a></li>
+				<li><a href="/xcertia">Xcertia</a></li>
+			</ul>
+		</li> 
+		<li>Information Assurance
+			<ul>
+				<li><a href="/fda-medical-device-ipr-security">FDA Medical Device IPR Security</a></li>
+				<li><a href="/fda-mitre-att-and-ck-for-enterprise">FDA MITRE ATT and CK for Enterprise</a></li>
+				<li><a href="/fda-mitre-att-and-ck-for-mobile">FDA MITRE ATT and CK for Mobile</a></li>
+				<li><a href="/fda-mitre-pre-att-and-ck">FDA MITRE Pre ATT and CK</a></li>
+				<li><a href="/medical-device-management">Medical Device Management (MDM)</a></li>
+				<li><a href="/medical-device-security">Medical Device Security (MDS2)</a></li>
+				<li><a href="/onc-hippa-compliance-checklist">ONC HIPAA Compliance Checklist (Health IT)</a></li>
+				<li><a href="/onc-hippa-privacy">ONC HIPAA Privacy (Pharma)</a></li>
+				<li><a href="/onc-hippa-security">ONC HIPAA Security (Pharma)</a></li>
+				<li><a href="/sdlc-hippa-privacy">SDLC HIPAA Privacy (Pharma)</a></li>
+				<li><a href="/technical-questionnaire-for-vendor-hosted-offerings">Technical Questionnaire for Vendor Hosted Offerings</a></li>
+			</ul>
+		</li> 
+	  </ul>
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

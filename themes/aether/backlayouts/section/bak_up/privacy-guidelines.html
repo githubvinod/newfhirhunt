@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    />
+     {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Privacy Guidelines</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "Digital Health Interoperability Evaluation Facet - Privacy guidelines",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+
+            },
+            "items": [{
+                    "question": "Respondent Contact Information (**All fields in this section are required**)",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q002",
+                    "localQuestionCode": "Q002",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+                    "items": [{
+                            "question": "Name",
+                            "questionCode": "Q002-01",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-01",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Title",
+                            "questionCode": "Q002-02",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-02",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Token",
+                            "questionCode": "token-token",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "token-token",
+                            "dataType": "ST",
+                            "editable":editable,
+                            "value":token
+                        },
+                        {
+                            "question": "Company",
+                            "questionCode": "company-name",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "company-name",
+                            "dataType": "ST",
+                            "editable":edit_assessee,
+                            "value":assessee
+                        },
+                        {
+                            "question": "Email Address",
+                            "questionCode": "Q002-05",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-05",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Phone",
+                            "questionCode": "Q002-06",
+                            "hideUnits": false,
+                            "numberField": true,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-06",
+                            "dataType": "ST"
+                        }
+                    ]
+                }, {
+                    "question": "Privacy Guidelines",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q005",
+                    "localQuestionCode": "Q005",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+                    "items": [{
+                            "questionCode": "Q005-01",
+                            "question": "Which of these data does your solution/app collect?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Personally Identifiable Information - Sensitive Information",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Personal Information",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "Others",
+                                    "code": "Opt3",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-02",
+                            "question": "Does your system make personal data available for other systems?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-03",
+                            "question": "Does your solution have a section (tab, button or equivalent) or active link to its Privacy Policy?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-04",
+                            "question": "Is there a a mechanism in place to notify users of changes to the Privacy Policy?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-05",
+                            "question": "For sensitive data please evidence how valid consent is obtained?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "questionCode": "Q005-06",
+                            "question": "Is collection of personal and sensitive data made transparent to the user?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-07",
+                            "question": "Do you provide a privacy notice to the user describing the purpose for which you intend to collect the personal or sensitive data?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-08",
+                            "question": "Is the user aware who collects the information, how it is collected and how long it will be retained?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        },
+                        {
+                            "questionCode": "Q005-09",
+                            "question": "Does your service/app enable the user to delete or request that you delete all their personal data irrespective of where it is held?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Yes",
+                                    "code": "Opt1",
+                                    "label": null,
+                                    "score": null
+                                },
+                                {
+                                    "text": "No",
+                                    "code": "Opt2",
+                                    "label": null,
+                                    "score": null
+                                }
+                            ]
+                        },
+                        {
+                            "questionCode": "Q005-10",
+                            "question": "Does the solution use encryption to store personally identifiable data?",
+                            "questionCodeSystem": "Custom",
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "header": false,
+                            "editable": "1",
+                            "answerCardinality": {
+                                "min": "0",
+                                "max": "1"
+                            },
+                            "dataType": "ST"
+                        }
+                    ]
+                },
+
+            ]
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

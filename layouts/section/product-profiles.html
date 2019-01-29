@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Product profile</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "code": "Q-Title",
+            "name": "Add new product",
+            "units": null,
+            "templateOptions": {
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions":true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showFormHeader": false,
+                "showColumnHeaders": false,
+                "hideFormControls": true
+
+            },
+            "items": [{
+                    "question": "Respondent Contact Information (**All fields in this section are required**)",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q002",
+                    "localQuestionCode": "Q002",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+                    "items": [{
+                            "question": "Name",
+                            "questionCode": "Q002-01",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-01",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Title",
+                            "questionCode": "Q002-02",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-02",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Token",
+                            "questionCode": "token-token",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "token-token",
+                            "dataType": "ST",
+                            "editable":editable,
+                            "value":token
+                        },
+                        {
+                            "question": "Company",
+                            "questionCode": "company-name",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "company-name",
+                            "dataType": "ST",
+                            "editable":edit_assessee,
+                            "value":assessee
+                        },
+                        {
+                            "question": "Email Address",
+                            "questionCode": "Q002-05",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-05",
+                            "dataType": "ST"
+                        },
+                        {
+                            "question": "Phone",
+                            "questionCode": "Q002-06",
+                            "hideUnits": false,
+                            "numberField": true,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q002-06",
+                            "dataType": "ST"
+                        }
+                    ]
+                },
+                {
+                    "question": "Product Details",
+                    "header": true,
+                    "hideUnits": true,
+                    "questionCode": "Q005",
+                    "localQuestionCode": "Q005",
+                    "units": null,
+                    "codingInstructions": "",
+                    "copyrightNotice": null,
+
+
+                    "items": [{
+                            "question": "Category",
+                            "hideUnits": true,
+                            "questionCode": "Q005-01",
+                            "localQuestionCode": "Q005-01",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Care Planning and Coordination",
+                                    "code": "1"
+                                },
+                                {
+                                    "text": "Clinical / Medical research",
+                                    "code": "2"
+                                },
+                                {
+                                    "text": "Consortia",
+                                    "code": "3"
+                                },
+                                {
+                                    "text": "Data prediction",
+                                    "code": "4"
+                                },
+                                {
+                                    "text": "Decision making / Medication management",
+                                    "code": "5"
+                                },
+                                {
+                                    "text": "Disease/pain management",
+                                    "code": "6"
+                                },
+                                {
+                                    "text": "Interoperability common technology and IP",
+                                    "code": "7"
+                                },
+                                {
+                                    "text": "Interoperability industry/community partnership",
+                                    "code": "8"
+                                },
+                                {
+                                    "text": "Interoperability product engineering",
+                                    "code": "9"
+                                },
+                                {
+                                    "text": "Interoperability product testing",
+                                    "code": "10"
+                                },
+                                {
+                                    "text": "Interoperability standard implementation",
+                                    "code": "11"
+                                },
+                                {
+                                    "text": "Patient Engagement/ PHR",
+                                    "code": "12"
+                                },
+                                {
+                                    "text": "Population health/ Genomics",
+                                    "code": "13"
+                                },
+                                {
+                                    "text": "Risk prediction",
+                                    "code": "14"
+                                },
+                                {
+                                    "text": "Synthetic data",
+                                    "code": "15"
+                                },
+                                {
+                                    "text": "Uncategorized",
+                                    "code": "16"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "answerCardinality": {
+                                "min": "1",
+                                "max": "*"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+
+                        },
+                        {
+                            "question": "Name",
+                            "questionCode": "Q005-02",
+
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-02",
+                            "dataType": "ST"
+
+                        },
+                        {
+                            "question": "Link",
+                            "questionCode": "Q005-03",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-02",
+                            "dataType": "ST"
+
+                        },
+
+                        {
+                            "question": "Business Model",
+                            "questionCode": "Q005-04",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-04",
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Commercial",
+                                    "code": "0"
+                                },
+                                {
+                                    "text": "Open Source (Free)",
+                                    "code": "1"
+                                },
+                                {
+                                    "text": "Open Source (Freemium)",
+                                    "code": "2"
+                                }
+                            ]
+
+                        },
+                        {
+                            "question": "Open Source License",
+                            "hideUnits": true,
+                            "questionCode": "Q005-05",
+                            "localQuestionCode": "Q005-05",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": [{
+                                    "text": "Academic Free License v3.0",
+                                    "code": "1"
+                                },
+                                {
+                                    "text": "Apache license 2.0",
+                                    "code": "2"
+                                },
+                                {
+                                    "text": "Artistic license 2.0",
+                                    "code": "3"
+                                },
+                                {
+                                    "text": "Boost Software License 1.0",
+                                    "code": "4"
+                                },
+                                {
+                                    "text": "BSD 2-clause 'Simplified' license",
+                                    "code": "5"
+                                },
+                                {
+                                    "text": "BSD 3-clause 'New' or 'Revised' license",
+                                    "code": "6"
+                                },
+                                {
+                                    "text": "BSD 3-clause Clear license",
+                                    "code": "7"
+                                },
+                                {
+                                    "text": "Creative Commons Attribution 4.0",
+                                    "code": "8"
+                                },
+                                {
+                                    "text": "Creative Commons Attribution Share Alike 4.0",
+                                    "code": "9"
+                                },
+                                {
+                                    "text": "Creative Commons license family",
+                                    "code": "10"
+                                },
+                                {
+                                    "text": "Creative Commons Zero v1.0 Universal",
+                                    "code": "11"
+                                },
+                                {
+                                    "text": "Do What The F*ck You Want To Public License",
+                                    "code": "12"
+                                },
+                                {
+                                    "text": "Eclipse Public License 1.0",
+                                    "code": "13"
+                                },
+                                {
+                                    "text": "Educational Community License v2.0",
+                                    "code": "14"
+                                },
+                                {
+                                    "text": "European Union Public License 1.1",
+                                    "code": "15"
+                                },
+                                {
+                                    "text": "GNU Affero General Public License v3.0",
+                                    "code": "16"
+                                },
+                                {
+                                    "text": "GNU General Public License family",
+                                    "code": "17"
+                                },
+                                {
+                                    "text": "GNU General Public License v2.0",
+                                    "code": "18"
+                                },
+                                {
+                                    "text": "GNU General Public License v3.0",
+                                    "code": "19"
+                                },
+                                {
+                                    "text": "GNU Lesser General Public License family",
+                                    "code": "20"
+                                },
+                                {
+                                    "text": "GNU Lesser General Public License v2.1",
+                                    "code": "21"
+                                },
+                                {
+                                    "text": "GNU Lesser General Public License v3.0",
+                                    "code": "22"
+                                },
+                                {
+                                    "text": "ISC",
+                                    "code": "23"
+                                },
+                                {
+                                    "text": "LaTeX Project Public License v1.3c",
+                                    "code": "24"
+                                },
+                                {
+                                    "text": "Microsoft Public License",
+                                    "code": "25"
+                                },
+                                {
+                                    "text": "MIT",
+                                    "code": "26"
+                                },
+                                {
+                                    "text": "Mozilla Public License 2.0",
+                                    "code": "27"
+                                },
+                                {
+                                    "text": "Open Software License 3.0",
+                                    "code": "28"
+                                },
+                                {
+                                    "text": "PostgreSQL License",
+                                    "code": "29"
+                                },
+                                {
+                                    "text": "SIL Open Font License 1.1",
+                                    "code": "30"
+                                },
+                                {
+                                    "text": "The Unlicense",
+                                    "code": "31"
+                                },
+                                {
+                                    "text": "University of Illinois/NCSA Open Source License",
+                                    "code": "32"
+                                },
+                                {
+                                    "text": "zLib License",
+                                    "code": "33"
+                                }
+                            ],
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "",
+                            "copyrightNotice": null
+
+
+                        },
+                        {
+                            "question": "Github URL",
+                            "questionCode": "Q005-06",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-06",
+                            "dataType": "ST",
+                            "answers": null
+
+                        },
+                        {
+                            "question": "Description",
+                            "questionCode": "Q005-07",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-07",
+                            "dataType": "TX",
+                            "answers": null
+
+                        },
+                        {
+                            "question": "Media URL",
+                            "questionCode": "Q005-08",
+                            "hideUnits": false,
+                            "noEmptyValue": true,
+                            "localQuestionCode": "Q005-08",
+                            "dataType": "ST",
+                            "answers": null
+
+                        },
+                        {
+                            "question": "Media",
+                            "hideUnits": true,
+                            "questionCode": "Q005-09",
+                            "localQuestionCode": "Q005-09",
+                            "units": null,
+                            "dataType": "CNE",
+                            "answers": null,
+                            "questionCardinality": {
+                                "min": "1",
+                                "max": "1"
+                            },
+                            "codingInstructions": "To attach a file to this question, select a file from the list of files shown in the drop down menu. To add a new document/file use Attach Files feature",
+                            "copyrightNotice": null,
+                            "FILEUPLOAD":true
+                        }
+                    ]
+                }
+                
+            ]
+        };
+		LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>

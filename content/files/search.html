@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+{{ partial "head.html" . }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ "js/jquery-3.1.1.min.js" | absURL }}"></script>
+<script src="{{ "js/search.js" | absURL }}"></script>
+<body class="list-body">
+{{ partial "nav-bar.html" . }}
+<main class="container side-gutter fhir-list-row">
+ <section class="resume-section p-3 p-lg-5 d-flex flex-column">
+  <div class="my-auto" >
+    
+    <div id="search-results">
+     <h3>Matching</h3>
+    </div>
+  </div>
+</section>
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}">
+      <h4><a href="${link}">${title}</a></h4>
+      <p>${snippet}</p>
+      ${ isset tags }<p>Tags: ${tags}</p>${ end }
+      ${ isset categories }<p>Categories: ${categories}</p>${ end }
+    </div>
+</script>
+      
+</main>
+     
+</body>
+</html>

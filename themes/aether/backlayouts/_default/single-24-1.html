@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+{{ partial "head.html" . }}
+
+<body class="single-body">
+  {{ partial "nav-bar.html" . }}
+  <section class="container">
+    <main class="content side-text-padding container single-blog-card single-block">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+          <p class="post-date">Posted
+            <time datetime="{{ .Date.Format " 2006-01-02 " }}">{{ .Date.Format "Jan 2, 2006" }}</time>{{ if isset .Params "author" }} | {{.Params.author }} {{ end }}
+          </p>
+        </header>
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-12 single-block-left"> {{ if isset .Params "featuredimage" }}
+            <div class="">
+                {{ if ne .Params.featuredimage "Nil" }}
+              <img src="{{.Params.featuredimage }}" class="img-responsive mb-2" />
+              {{else}}
+              <img src="/img/featured/default.jpg" class="img-responsive mb-2" />
+              {{end}}
+            </div>
+            {{ end }} {{ .Content }} </div>
+          <div class="col-lg-4 col-md-5 col-sm-12 single-block-right">
+            <aside class="share-widget">
+              <h3>Share</h3>
+              <ul class="post-share">
+                <a class="share fb-share" href="https://www.facebook.com/sharer/sharer.php?u=https://www.fhirhunt.com{{ .Permalink | safeURL }}"
+                  title="That is a distinctoffers aside babysit of you." data-action="facebook">
+                  <div class="sh-cnt-col">
+                    <li class="fb ph-s">
+                      <i class="fab fa-facebook"></i>
+                    </li>
+                    <p>0</p>
+                  </div>
+                </a>
+                <a class="share fb-share" href="https://twitter.com/home?status=https://www.fhirhunt.com{{ .Permalink | safeURL }}" title="That is a distinctoffers aside babysit of you."
+                  data-action="twitter">
+                  <div class="sh-cnt-col">
+                    <li class="tw ph-s">
+                      <i class="fab fa-twitter"></i>
+                    </li>
+                    <p>0</p>
+                  </div>
+                </a>
+
+                <a class="share" href="mailto:?subject={{ .Title }}&body=https://www.fhirhunt.com{{ .Permalink | safeURL }}">
+                  <div class="sh-cnt-col">
+                    <li class="em ph-s ph-s-em">
+                      <i class="fa fa-envelope"></i>
+                    </li>
+                    <p>0</p>
+                  </div>
+                </a>
+                <div class="clearfix"></div>
+              </ul>
+            </aside>
+            <!-- /.share-widget ends -->
+            <aside class="single-git-action">
+              <!--<span class="upvote-ttl"><i class="fa fa-arrow-up"></i> 4</span>-->
+              {{ if ne .Params.githubUrl "Nil" }}
+              <div class="github-row fab fa-github">
+                <a href="#" target="_blank">
+                  <div class="github-count">
+                    <span>
+                      <i class="fas fa-eye"></i>
+                    </span>
+                    <span class="hunt-comm-count">{{.Params.watchers }}</span>
+                  </div>
+                </a>
+                <a href="#" target="_blank">
+                  <div class="github-count">
+                    <span>
+                      <i class="fas fa-star"></i>
+                    </span>
+                    <span class="hunt-comm-count">{{.Params.stars }}</span>
+                  </div>
+                </a>
+                <a href="#" target="_blank">
+                  <div class="github-count">
+                    <span>
+                      <i class="fas fa-code-branch"></i>
+                    </span>
+                    <span class="hunt-comm-count">{{.Params.forks }}</span>
+                  </div>
+                </a>
+                <a href="#" target="_blank">
+                  <div class="github-count">
+                    <span>
+                      <i class="fas fa-exclamation-circle"></i>
+                    </span>
+                    <span class="hunt-comm-count">{{.Params.openIssues }}</span>
+                  </div>
+                </a>
+                <div class="clearfix"></div>
+              </div>
+              {{end}}
+            </aside>
+
+            {{ if ne .Params.githubUrl "Nil" }}
+
+            <aside>
+              <a class="link_9bebc" title="" target="_blank" href="{{.Params.githubUrl }}">
+                <span class="icon_a4b3e">
+                  <i class="fab fa-github"></i>
+                </span>
+                <div class="side_c0705">
+                  <strong>Github</strong>
+                  <span class="" title="public-apis.xyz">Click Here</span>
+                </div>
+              </a>
+            </aside>
+
+
+            {{ end }} {{ if ne .Params.websiteUrl "Nil" }}
+
+            <aside>
+              <a class="link_9bebc" title="" target="_blank" href="{{.Params.websiteUrl }}">
+                <span class="icon_a4b3e">
+                  <i class="fab"></i>
+                </span>
+                <div class="side_c0705">
+                  <strong>Website Url</strong>
+                  <span class="" title="public-apis.xyz">Click Here</span>
+                </div>
+              </a>
+            </aside>
+
+
+            {{ end }}
+
+
+            <!-- /.url-button ends -->
+
+            <aside class="right-sidebar-widget mt-4 mb-4">
+              <h3>Trending Products</h3>
+              <ul>
+
+                {{ range first 6 ( where .Site.Pages.ByWeight.Reverse "Section" "trending" ) }} {{if ne .Title "Trendings"}}
+                <li>
+                  <a href="{{.Permalink}}">{{ .Title }}</a>
+                </li>
+                {{end}} {{ end }}
+
+              </ul>
+            </aside>
+            <!-- /recent-post ends -->
+
+          </div>
+        </div>
+      </article>
+      <!--
+      If you're going to use DISQUS comments, insert code here.
+      -->
+    </main>
+  </section>
+  <!--<nav class="end-nav side-padding">
+      {{ with .PrevInSection }}
+      {{ .Render "li-next" }}
+      {{ end }}
+      {{ partial "home-card.html" . }}
+    </nav>
+    {{ partial "scripts.html" . }}-->
+
+
+</body>
+
+</html>

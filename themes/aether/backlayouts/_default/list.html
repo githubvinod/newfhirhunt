@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="list-body">
+    {{ partial "nav-bar.html" . }}
+    <main class="container side-gutter fhir-list-row">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+      {{ $paginator := .Paginate (where .Pages "Params.displayinlist" "!=" false) }}
+      {{ range $paginator.Pages.ByDate.Reverse }}
+      {{ .Render "li" }}
+      {{ end }}
+    </main>
+    {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
+    <nav class="pagination-nav side-padding">
+      {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" class="pagination-newer">&lt; Newer Posts</a>{{ end }}
+      {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" class="pagination-older">Older Posts &gt;</a>{{ end }}
+    </nav>
+    {{ end }}
+    {{ partial "scripts.html" . }}
+    <div id="formContainer">
+      </div>
+    <!--<script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>-->
+
+    <script>
+      
+      $(document).ready(function(){ 
+
+$(".small-bt-row").on("click", function(){
+console.log($(this).attr("data-app"));
+var post_id = $(this).attr("data-app");
+
+$.ajax({
+  url: "http://10.10.10.64:5080/",
+  dataType: 'JSON',
+  type: 'GET',
+  crossDomain: true, 
+  success: function (data) {
+
+console.log(data);
+      //data.
+  },
+  error:function(x){
+    console.log("Error");
+    console.log(x)
+  } 
+});
+$.ajax({
+  
+    //url: "https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}",
+    url: "http://graph.facebook.com/?id=https://www.fhirhunt.com/trending/ascvd_risk_calculator/?fbclid=IwAR1mCfclteB4biKlLNtXQexmL_iRk9Y-FJv4DLkfaGIfR5ZWf8gu1bhcLXw",
+    dataType: 'JSONP',
+    type: 'GET',
+    headers: {  "cache-control": "no-cache",'Access-Control-Allow-Origin': '*' },
+    crossDomain: true, 
+    success: function (data) {
+
+console.log(data.share.share_count);
+        //data.
+    },
+    error:function(x){
+      console.log(x)
+    } 
+  });
+
+/*  
+  var pageURL = "www.google.com";
+var tweet  = "https://cdn.api.twitter.com/1/urls/count.json?url='"+ pageURL + "'&callback=?";
+
+$.getJSON(tweet,function(json){
+    $('#twitterfeed').text(json.count); 
+});
+*/
+/*
+  $.ajax({
+  
+  //url: "https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}",
+  url: "https://cdn.api.twitter.com/1/urls/count.json?url=http://www.google.com",
+  dataType: 'JSON',
+  type: 'GET',
+  headers: {  "cache-control": "no-cache",'Access-Control-Allow-Origin': '*'   },
+  success: function (data) {
+
+console.log(data);
+      //data.
+  },
+  error:function(x){
+    console.log(x)
+  } 
+});
+*/
+});
+});
+
+
+
+
+/*
+$.ajax({
+    //url: "https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}",
+    url: "https://stage-graphql.medigy.com/graphql",
+    dataType: 'JSON',
+    type: 'GET',
+    data: {
+      "query": "query{\n  getQuestionnaire(name:\"Product\",category:\"product-facets\",tenantId:\"7822da54-c0ba-11e8-85c1-6301a0c839d6\"){\n    instance\n  }\n}"
+  },
+    headers: {  "cache-control": "no-cache",'Access-Control-Allow-Origin': '*',"Content-Type": "application/x-www-form-urlencoded" },
+    crossDomain: true, 
+    success: function (data) {
+        outsideData = data.data.getQuestionnaire.instance;
+        console.log(data.data.getQuestionnaire.instance);
+        window.formDef =  data.data.getQuestionnaire.instance;  
+        LForms.Util.addFormToPage('formDef', 'formContainer');
+
+        //data.
+    },
+    error:function(x){
+      console.log(x)
+    } 
+  });
+  console.log(outsideData);
+});
+});
+*/
+/*
+console.log(123);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://graphql.fhirhunt.com/graphql",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache"
+  },
+  "dataType": 'JSONP',
+  "jsonpCallback": 'callback',
+  "data": {
+    "query": "query{\n  getProductProfiles(tenantId:\"7822da54-c0ba-11e8-85c1-6301a0c839d6\",category:\"product-facets\"){ id\n    name\n    description\n    openSourceLicense\n    category\n    createdOn\n    category\n    link\n    mediaUrl\n    githubUrl\n    businessModel\n  }\n}"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(321);
+  //console.log(response);
+});
+
+    $.ajax({
+    url: 'https://metrics.netspective.com/api/v1/query?query=github_repo_forks',
+    dataType: 'JSONP',
+    jsonpCallback: 'callback',
+    type: 'POST',
+    crossDomain: true,
+    headers: {  "Authorization": "Basic bWV0cmljc19hZG1pbjpMTXVJT2c5M3VQ","cache-control": "no-cache" },
+
+    success: function (data) {
+     //var data = JSON.parse(data)
+     console.log("---------------");
+        console.log(data);
+        console.log("---------------");
+    },
+    error:function(x){
+      //alert("Error");
+      console.log("-------###########--------");
+      //console.log(x)
+      console.log("---------------");
+    } 
+  });
+
+});
+*/
+
+
+
+
+
+/*
+//<![CDATA[
+
+    // insert teh codez
+
+    $.ajax({
+    url: 'https://metrics.netspective.com/api/v1/query?query=github_repo_forks1',
+    dataType: 'JSONP',
+    jsonpCallback: 'callback',
+    type: 'GET',
+
+    success: function (data) {
+     var data = JSON.parse(data)
+        console.log(data);
+    }
+
+//]]>
+*/
+
+
+/*
+$.ajax({
+    url: 'https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}',
+    type: 'POST',
+    "async": true,
+    "dataType":"jsonp",
+    "crossDomain": true,
+    headers: {  "Authorization": "Basic bWV0cmljc19hZG1pbjpMTXVJT2c5M3VQ","cache-control": "no-cache",'Access-Control-Allow-Origin': '*' },
+    jsonpCallback: "localJsonpCallback"
+  */
+  /*  success: function(res) {
+      //  var headline = $(res.responseText).find('a.tsh').text();
+      var res = JSON.parse(res);
+        console.log(res);
+    }
+  */
+/*});
+
+
+                  var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://crossorigin.me/https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}",
+            "method": "POST",
+            "dataType":"json",
+            "headers": {
+              "Authorization": "Basic bWV0cmljc19hZG1pbjpMTXVJT2c5M3VQ",
+              "cache-control": "no-cache",
+              'Access-Control-Allow-Origin': 'htt://site allowed to access'
+            }
+          }
+*/
+/*          $.ajax(settings).done(function (response) {
+            console.log(response);
+          });*/
+/*
+$.ajax({
+    url: 'https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}',
+    type: 'GET',
+    headers: {
+              "Authorization": "Basic bWV0cmljc19hZG1pbjpMTXVJT2c5M3VQ",
+              "cache-control": "no-cache"
+            },
+    dataType:"jsonp",
+    success: function(res) {
+        //var headline = $(res.responseText).find('a.tsh').text();
+        alert(res);
+    },
+    error:function(){
+      alert("Error");
+    }    
+});
+*/
+
+          /*
+          $.ajax({
+
+            async: true,
+            crossDomain: true,
+            url: "https://metrics.netspective.com/api/v1/query?query={repo=%22fhir-net-api%22,user=%22ewoutkramer%22}",
+            method: "GET",
+            dataType:"jsonp",
+            headers: {
+              "Authorization": "Basic bWV0cmljc19hZG1pbjpMTXVJT2c5M3VQ",
+              "cache-control": "no-cache"
+            },
+            success:function(json){
+                // do stuff with json (in this case an array)
+                alert("Success");
+            },
+            error:function(){
+                alert("Error");
+            }      
+        });
+        */
+
+  /*    });
+      function localJsonpCallback(json) {
+        alert(1212)
+        if (!json.Error) {
+          alert(json);
+        }
+        else {
+
+            alert(json.Message);
+        }
+    }
+    */      
+    </script>
+  </body>
+</html>

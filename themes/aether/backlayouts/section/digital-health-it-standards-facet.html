@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body class="single-body">
+  <link href="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/styles/lforms.min.css" media="screen" rel="stylesheet"
+    /> 
+    {{ partial "nav-bar.html" . }}
+    <section class="container">
+    <main class="content side-text-padding container single-blog-card">
+      <article class="post {{ if ne .Params.dropcap false }}dropcase{{ end }}">
+        <header class="post-header">
+        	<h1 class="post-title">Digital Health IT Standards Facet</h1>
+         
+        </header>
+        <div class=""><img src="" class="img-responsive mb-2" /></div>
+
+
+    <div class="entry-content entry-content-2 page-content">
+      <!--<header class="list-header">
+        <p class="list-header-subtext">{{ .Description }}</p>
+        <h1 class="list-header-title">{{ .Title }}</h1>
+      </header>-->
+
+    
+    
+    <div id="formContainer">
+    </div>
+    <!--<button type="button" id="downloadbutton">SUBMIT</button>-->
+    <script src="https://clin-table-search.lhc.nlm.nih.gov/lforms-versions/13.1.0/lforms.min.js"></script>
+    <script>
+        if (typeof (token) == "undefined") {
+            var token = "";
+			var assessee= "";
+			var edit_assessee= "1";
+            var editable = "1";
+        } else {
+			edit_assessee= "0";
+            editable = "0";
+        }
+
+
+
+        // This is the form definition
+		window.formDef = {
+            "name": "Digital Health IT Standards Facet",
+            "items": [
+			
+    {
+      "question": "Health IT Standards Supported",
+      "questionCodeSystem": "Custom",
+      "questionCode": "STND",
+      "codingInstructions": "Which Health IT Standards does the product support?",
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "header": false,
+      "editable": "1",
+      "answerCardinality": {
+        "min": "1",
+        "max": "*"
+      },
+      "dataType": "CNE",
+      "answers": [
+        {
+          "text": "FHIR",
+          "code": "HISS1",
+          "label": null,
+          "score": null
+        },
+        {
+          "text": "HL7",
+          "code": "HISS2",
+          "label": null,
+          "score": null
+        },
+        {
+          "text": "CDA",
+          "code": "HISS3",
+          "label": null,
+          "score": null
+        },
+        {
+          "text": "CCOW",
+          "code": "HISS4",
+          "label": null,
+          "score": null
+        },
+        {
+          "text": "None of the Above",
+          "code": "HISS5",
+          "label": "",
+          "score": null
+        }
+      ]
+    },
+    {
+      "question": "FHIR",
+      "questionCodeSystem": "Custom",
+      "questionCode": "HITS1",
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "header": true,
+      "editable": "1",
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      },
+      "dataType": "ST",
+      "skipLogic": {
+        "action": "show",
+        "logic": "ANY",
+        "conditions": [
+          {
+            "source": "STND",
+            "trigger": {
+              "code": "HISS1"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "question": "FHIR Version",
+          "questionCodeSystem": "Custom",
+          "questionCode": "FRF2",
+          "codingInstructions": "Which Versions of FHIR does the product support?",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CNE",
+          "answers": [
+            {
+              "text": "DSTU1",
+              "code": "VER1",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "DSTU2",
+              "code": "VER2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "STU3",
+              "code": "VER3",
+              "label": null,
+              "score": null
+            }
+          ]
+        },
+        {
+          "question": "FHIR Resources",
+          "questionCodeSystem": "Custom",
+          "questionCode": "FRF3",
+          "codingInstructions": "Which FHIR Resources does the Product support?",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CNE",
+          "answers": [
+            {
+              "text": "Patient",
+              "code": "RES1",
+              "label": "",
+              "score": null
+            },
+            {
+              "text": "DiagnosticReport",
+              "code": "RES2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Observations",
+              "code": "RES3",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "AllergyIntolerance",
+              "code": "RES4",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Condition",
+              "code": "RES5",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "AdverseEvent",
+              "code": "RES6",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Procedure",
+              "code": "RES7",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "MedicationAdministration",
+              "code": "RES8",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "MedicationStatement",
+              "code": "RES9",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "FamilyMemberHistory",
+              "code": "RES10",
+              "label": null,
+              "score": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "HL7",
+      "questionCodeSystem": "Custom",
+      "questionCode": "HL7",
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "header": true,
+      "editable": "1",
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      },
+      "dataType": "ST",
+      "skipLogic": {
+        "action": "show",
+        "logic": "ANY",
+        "conditions": [
+          {
+            "source": "STND",
+            "trigger": {
+              "code": "HISS2"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "question": "HL7 Versions",
+          "questionCodeSystem": "Custom",
+          "questionCode": "HVS",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CNE",
+          "answers": [
+            {
+              "text": "HL7 v2",
+              "code": "HVS1",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "HL7 v3",
+              "code": "HVS2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Clinical Document Architecture (CDA)",
+              "code": "HVS3",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Continuity of Care Document (CCD)",
+              "code": "HVS4",
+              "label": null,
+              "score": null
+            }
+          ]
+        },
+        {
+          "question": "HL7 Message Types Supported",
+          "questionCodeSystem": "Custom",
+          "questionCode": "HL7MT",
+          "codingInstructions": "What types of HL7 messages are supported by the product?",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CWE",
+          "answers": [
+            {
+              "text": "ACK",
+              "code": "HL7MT1",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "ADT",
+              "code": "HL7MT2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "BAR",
+              "code": "HL7MT3",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "DFT",
+              "code": "HL7MT4",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "MDM",
+              "code": "HL7MT5",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "MFN",
+              "code": "HL7MT6",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "ORM",
+              "code": "HL7MT7",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "ORU",
+              "code": "HL7MT8",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "QRY",
+              "code": "HL7MT9",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "RAS",
+              "code": "HL7MT10",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "RDE",
+              "code": "HL7MT11",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "RGV",
+              "code": "HL7MT12",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "SIU",
+              "code": "HL7MT13",
+              "label": null,
+              "score": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "CDA",
+      "questionCodeSystem": "Custom",
+      "questionCode": "CDA",
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "header": true,
+      "editable": "1",
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      },
+      "dataType": "ST",
+      "skipLogic": {
+        "action": "show",
+        "logic": "ANY",
+        "conditions": [
+          {
+            "source": "STND",
+            "trigger": {
+              "code": "HISS3"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "question": "CDA Versions",
+          "questionCodeSystem": "Custom",
+          "questionCode": "CDAV",
+          "codingInstructions": "What are the CDA Versions supported by the product?",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CWE",
+          "answers": [
+            {
+              "text": "Release 1",
+              "code": "CDAV1",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "Release 2",
+              "code": "CDAV2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "None of the Above",
+              "code": "CDAV3",
+              "label": null,
+              "score": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question": "CCOW",
+      "questionCodeSystem": "Custom",
+      "questionCardinality": {
+        "min": "1",
+        "max": "1"
+      },
+      "header": true,
+      "editable": "1",
+      "answerCardinality": {
+        "min": "0",
+        "max": "1"
+      },
+      "dataType": "ST",
+      "skipLogic": {
+        "action": "show",
+        "logic": "ANY",
+        "conditions": [
+          {
+            "source": "STND",
+            "trigger": {
+              "code": "HISS4"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "question": "CCOW Version",
+          "questionCodeSystem": "Custom",
+          "questionCode": "CCOWV",
+          "codingInstructions": "What is the CCOW version supported by the product?",
+          "questionCardinality": {
+            "min": "1",
+            "max": "1"
+          },
+          "header": false,
+          "editable": "1",
+          "answerCardinality": {
+            "min": "0",
+            "max": "*"
+          },
+          "dataType": "CNE",
+          "answers": [
+            {
+              "text": "1.0",
+              "code": "CCOW1",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.1",
+              "code": "CCOW2",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.2",
+              "code": "CCOW3",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.3",
+              "code": "CCOW4",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.4",
+              "code": "CCOW5",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.5",
+              "code": "CCOW6",
+              "label": null,
+              "score": null
+            },
+            {
+              "text": "1.6",
+              "code": "CCOW7",
+              "label": null,
+              "score": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+            "templateOptions": {
+                "showFormHeader": false,
+                "hideFormControls": true,
+                "obrHeader": false,
+                "hideUnits": true,
+                "hideHeader": true,
+                "allowHTMLInInstructions": true,
+                "allowMultipleEmptyRepeatingItems": false,
+                "showColumnHeaders": false,
+
+            }
+        };
+	LForms.Util.addFormToPage('formDef', 'formContainer');
+    </script>
+       
+
+ </div>
+       
+      </article>
+    
+    </main>
+  </section>
+   
+  </body>
+</html>
